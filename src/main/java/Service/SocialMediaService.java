@@ -50,10 +50,7 @@ public class SocialMediaService {
     }
 
     public Message updateMessageById(int messageId, String newMessageText) {
-        if (newMessageText.isBlank() || newMessageText.length() > 255) {
-            return null;
-        }
-        if(dao.getMessageById(messageId) == null) {
+        if (newMessageText.isBlank() || newMessageText.length() > 255 || dao.getMessageById(messageId) == null) {
             return null;
         }
         return dao.updateMessageById(messageId, newMessageText);
